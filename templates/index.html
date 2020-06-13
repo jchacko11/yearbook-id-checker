@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yearbook ID Checker</title>
+    <link rel="stylesheet" href="/static/bulmaswatch.min.css">
+    <script src="/static/jquery.min.js"></script>
+    <script src="/static/script.js"></script>
+
+</head>
+<body>
+
+<section class="hero is-link is-fullheight-with-navbar">
+    <div class="hero-body">
+        <div class="container">
+
+            <p class="title is-1">
+                Check Your Yearbook Status
+            </p>
+
+            <form class="field has-addons" action="/">
+                <div class="control">
+                    <label for="student-id" class="is-sr-only">Student ID</label>
+                    <input class="input is-large is-rounded" type="tel" placeholder="Student ID" id="student-id"
+                           maxlength="6" name="id" autocomplete="off">
+                </div>
+                <div class="control">
+                    <input type='submit' class="button is-danger is-large" id="search" disabled>
+                </div>
+            </form>
+
+            {% if valid == False %}
+                <article class="message is-danger">
+                    <div class="message-header">
+                        <p>Not found</p>
+                    </div>
+                    <div class="message-body">
+                        Your Student ID was not found in our records.
+                    </div>
+                </article>
+            {% elif valid == True %}
+                <article class="message is-success">
+                    <div class="message-header">
+                        <p>You purchased a yearbook</p>
+                    </div>
+                    <div class="message-body">
+                        Congratulations!
+                    </div>
+                </article>
+            {% endif %}
+
+        </div>
+    </div>
+</section>
+
+<div class="padded has-background-dark">
+    <div class="container">
+        <nav class="level">
+
+            <!-- Left side -->
+            <div class="level-left">
+                <div class="level-item">
+                    <p class="title is-5 has-text-white-ter">WLMS Yearbook</p>
+                </div>
+            </div>
+
+            <!-- Right side -->
+            <div class="level-right">
+                <p class="level-item">
+                    <a class="button is-link is-small" href="https://jchacko.dev" target="_blank">
+                        Made by Jonathan Chacko
+                    </a>
+                </p>
+            </div>
+
+        </nav>
+    </div>
+</div>
+
+<style>
+    .padded {
+        padding: 1.45rem;
+    }
+
+    .button, .input {
+        height: unset !important;
+    }
+    html{
+        overflow: auto;
+    }
+</style>
+
+</body>
+</html>
