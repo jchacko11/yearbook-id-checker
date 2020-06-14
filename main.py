@@ -10,7 +10,7 @@ credentials = service_account.Credentials.from_service_account_file('wlms-yearbo
 scoped_credentials = credentials.with_scopes(scopes)
 
 gc = gspread.authorize(scoped_credentials)
-student_ids = gc.open("WLMS Yearbook Master").worksheet('Student IDs')
+student_ids = gc.open_by_key("1AKoY1sDPn9J4IZMXZlEMH_b8Vk55VR6XnasEIxBZ-BA").worksheet('Student IDs')
 
 
 def check(student_id):
